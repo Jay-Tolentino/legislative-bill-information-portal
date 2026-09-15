@@ -122,6 +122,7 @@ The script verifies:
 
 ## Project Structure
 
+```text
 web/modules/custom/legislative_bills/
 ├── css/
 │   └── legislative_bills.css
@@ -136,7 +137,6 @@ web/modules/custom/legislative_bills/
 ├── legislative_bills.install
 ├── legislative_bills.libraries.yml
 └── legislative_bills.routing.yml
-
 ## Purpose
 
 This project demonstrates exposure to:
