@@ -1,0 +1,62 @@
+.legislative-portal {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.legislative-intro {
+  margin-bottom: 24px;
+}
+
+.legislative-intro h2 {
+  margin-bottom: 8px;
+}
+
+.legislative-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: end;
+  padding: 20px;
+  margin-bottom: 24px;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  background: #f7f7f7;
+}
+
+.legislative-filters label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.legislative-filters input,
+.legislative-filters select {
+  min-width: 180px;
+  padding: 8px 10px;
+}
+
+.legislative-filters button {
+  padding: 9px 16px;
+  cursor: pointer;
+}
+
+.bill-detail-card {
+  max-width: 800px;
+  padding: 24px;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.bill-detail-card h2 {
+  margin-top: 0;
+}
+
+.bill-detail-card p {
+  margin-bottom: 12px;
+}
+
+.bill-actions {
+  margin-top: 20px;
+}

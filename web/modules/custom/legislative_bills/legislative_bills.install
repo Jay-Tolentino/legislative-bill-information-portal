@@ -1,0 +1,119 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function legislative_bills_schema(): array {
+  $schema['legislative_bills'] = [
+    'description' => 'Stores legislative bill information.',
+    'fields' => [
+      'id' => [
+        'description' => 'Primary key.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'bill_number' => [
+        'description' => 'Machine-readable bill number.',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+      ],
+      'display_number' => [
+        'description' => 'Human-readable bill number.',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+      ],
+      'title' => [
+        'description' => 'Bill title.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'author' => [
+        'description' => 'Bill author.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'chamber' => [
+        'description' => 'Legislative chamber.',
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+      ],
+      'status' => [
+        'description' => 'Current bill status.',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+      ],
+      'session' => [
+        'description' => 'Legislative session.',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+      ],
+      'summary' => [
+        'description' => 'Bill summary.',
+        'type' => 'text',
+        'size' => 'big',
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['id'],
+    'unique keys' => [
+      'bill_number' => ['bill_number'],
+    ],
+  ];
+
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ */
+function legislative_bills_install(): void {
+  $database = \Drupal::database();
+
+  $bills = [
+    [
+      'bill_number' => 'AB2306',
+      'display_number' => 'AB 2306',
+      'title' => 'State Government Modernization',
+      'author' => 'Assembly Member Johnson',
+      'chamber' => 'Assembly',
+      'status' => 'Introduced',
+      'session' => '2025-2026',
+      'summary' => 'Modernizes selected state government services and expands access to digital public services.',
+    ],
+    [
+      'bill_number' => 'SB118',
+      'display_number' => 'SB 118',
+      'title' => 'Public Records Accessibility',
+      'author' => 'Senator Martinez',
+      'chamber' => 'Senate',
+      'status' => 'In Committee',
+      'session' => '2025-2026',
+      'summary' => 'Improves public access to government records and establishes updated digital accessibility requirements.',
+    ],
+    [
+      'bill_number' => 'AB742',
+      'display_number' => 'AB 742',
+      'title' => 'Digital Government Services',
+      'author' => 'Assembly Member Lee',
+      'chamber' => 'Assembly',
+      'status' => 'Passed',
+      'session' => '2025-2026',
+      'summary' => 'Expands online access to selected government services and improves digital service delivery.',
+    ],
+  ];
+
+  foreach ($bills as $bill) {
+    $database
+      ->insert('legislative_bills')
+      ->fields($bill)
+      ->execute();
+  }
+}

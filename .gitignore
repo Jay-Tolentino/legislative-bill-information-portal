@@ -1,0 +1,30 @@
+# Composer dependencies
+/vendor/
+
+# Drupal core and Composer-installed packages
+/web/core/
+/web/modules/contrib/
+/web/themes/contrib/
+/web/profiles/contrib/
+
+# Drupal generated/uploaded files
+/web/sites/default/files/
+
+# Local Drupal settings
+/web/sites/default/settings.local.php
+/web/sites/development.services.yml
+/web/sites/default/settings.php
+
+# Environment files
+.env
+.env.*
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Test / temporary output
+.phpunit.result.cache
+/tmp/

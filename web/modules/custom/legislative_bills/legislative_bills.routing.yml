@@ -1,0 +1,52 @@
+legislative_bills.list:
+  path: '/legislation'
+  defaults:
+    _controller: '\Drupal\legislative_bills\Controller\LegislativeBillsController::list'
+    _title: 'Legislative Bills'
+  requirements:
+    _permission: 'access content'
+
+legislative_bills.detail:
+  path: '/legislation/{bill_number}'
+  defaults:
+    _controller: '\Drupal\legislative_bills\Controller\LegislativeBillsController::detail'
+    _title: 'Bill Details'
+  requirements:
+    _permission: 'access content'
+
+legislative_bills.api:
+  path: '/api/bills'
+  defaults:
+    _controller: '\Drupal\legislative_bills\Controller\LegislativeBillsController::api'
+  requirements:
+    _permission: 'access content'
+
+legislative_bills.api_detail:
+  path: '/api/bills/{bill_number}'
+  defaults:
+    _controller: '\Drupal\legislative_bills\Controller\LegislativeBillsController::apiDetail'
+  requirements:
+    _permission: 'access content'
+
+legislative_bills.add:
+  path: '/admin/legislation/add'
+  defaults:
+    _form: '\Drupal\legislative_bills\Form\BillForm'
+    _title: 'Add Legislative Bill'
+  requirements:
+    _permission: 'administer site configuration'
+legislative_bills.edit:
+  path: '/admin/legislation/{bill_number}/edit'
+  defaults:
+    _form: '\Drupal\legislative_bills\Form\BillEditForm'
+    _title: 'Edit Legislative Bill'
+  requirements:
+    _permission: 'administer site configuration'
+
+legislative_bills.delete:
+  path: '/admin/legislation/{bill_number}/delete'
+  defaults:
+    _form: '\Drupal\legislative_bills\Form\BillDeleteForm'
+    _title: 'Delete Legislative Bill'
+  requirements:
+    _permission: 'administer site configuration'
